@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/transaction.dart';
-import '../components/transaction_item.dart';
+import '../../models/transaction.dart';
+import '../../components/transaction_item.dart';
 import 'transaction_form.dart';
 
 class TransactionList extends StatefulWidget {

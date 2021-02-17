@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/transacton_list.dart';
+import 'screens/transaction/transacton_list.dart';
 
 void main() => runApp(ByteBankApp());
 

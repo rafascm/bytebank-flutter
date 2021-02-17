@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components/transaction_form_input_editor.dart';
-import '../components/transaction_form_add_button.dart';
+import '../../components/transaction_form_input_editor.dart';
+import '../../components/transaction_form_add_button.dart';
 
 class TransactionForm extends StatefulWidget {
   @override
