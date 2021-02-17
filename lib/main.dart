@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'screens/transaction/transacton_list.dart';
+import 'models/balance.dart';
+import 'screens/dashboard/dashboard.dart';
 
-void main() => runApp(ByteBankApp());
+void main() => runApp(
+      ChangeNotifierProvider(
+        create: (context) => Balance(0),
+        child: ByteBankApp(),
+      ),
+    );
 
 class ByteBankApp extends StatelessWidget {
   @override
@@ -17,7 +24,7 @@ class ByteBankApp extends StatelessWidget {
             buttonColor: Colors.teal,
             textTheme: ButtonTextTheme.primary,
           )),
-      home: TransactionList(),
+      home: Dashboard(),
     );
   }
 }
