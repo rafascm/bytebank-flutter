@@ -1,7 +1,6 @@
+import 'package:bytebank/models/balance.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../models/balance.dart';
 
 class BalanceCard extends StatelessWidget {
   @override

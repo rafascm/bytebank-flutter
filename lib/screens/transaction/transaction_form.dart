@@ -1,16 +1,9 @@
+import 'package:bytebank/components/transaction_form_add_button.dart';
+import 'package:bytebank/components/transaction_form_input_editor.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/transaction_form_input_editor.dart';
-import '../../components/transaction_form_add_button.dart';
-
-class TransactionForm extends StatefulWidget {
-  @override
-  _TransactionFormState createState() => _TransactionFormState();
-}
-
-class _TransactionFormState extends State<TransactionForm> {
+class TransactionForm extends StatelessWidget {
   final TextEditingController _controllerAcc = TextEditingController();
-
   final TextEditingController _controllerValue = TextEditingController();
 
   @override

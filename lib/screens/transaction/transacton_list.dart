@@ -1,42 +1,34 @@
+import 'package:bytebank/components/transaction_item.dart';
+import 'package:bytebank/models/transactions.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../models/transaction.dart';
-import '../../components/transaction_item.dart';
 import 'transaction_form.dart';
 
-class TransactionList extends StatefulWidget {
-  final List<Transaction> _transactions = List();
-
-  @override
-  _TransactionListState createState() => _TransactionListState();
-}
-
-class _TransactionListState extends State<TransactionList> {
+class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Transferências'),
       ),
-      body: ListView.builder(
-        itemCount: widget._transactions.length,
-        itemBuilder: (context, index) {
-          final tsx = widget._transactions[index];
-          return TransactionItem(tsx);
+      body: Consumer<Transactions>(
+        builder: (context, tsxs, child) {
+          return ListView.builder(
+            itemCount: tsxs.transactions.length,
+            itemBuilder: (context, index) {
+              final tsx = tsxs.transactions[index];
+              return TransactionItem(tsx);
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final Future<Transaction> future = Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => TransactionForm()),
           );
-          future.then((transaction) {
-            if (transaction != null)
-              setState(() {
-                widget._transactions.add(transaction);
-              });
-          });
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
